@@ -56,6 +56,22 @@ void setup()
 
     logger.info("SlimeVR v" FIRMWARE_VERSION " starting up...");
 
+    //set imu arrdess high to push local imu to alt address
+    pinMode(17, OUTPUT);
+    digitalWrite(17, HIGH);
+    //set imu Ground low   
+    pinMode(15, OUTPUT);
+    digitalWrite(15, LOW);  
+    //set imu VCC high
+    pinMode(13, OUTPUT);
+    digitalWrite(13, HIGH);
+    
+    //added to give extra power outputs
+    // pinMode(PIN_DEBUG_VCC, OUTPUT);
+    // digitalWrite(PIN_DEBUG_VCC, HIGH);
+    // pinMode(PIN_DEBUG_GND, OUTPUT);
+    // digitalWrite(PIN_DEBUG_GND, LOW);
+
     //wifi_set_sleep_type(NONE_SLEEP_T);
 
     statusManager.setStatus(SlimeVR::Status::LOADING, true);

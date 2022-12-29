@@ -49,6 +49,10 @@
 
 #define LED_PIN LED_BUILTIN
 
+// hackey stuff to get power from pins
+#define PIN_DEBUG_VCC 13
+#define PIN_DEBUG_GND 15
+
 // Determines how often we sample and send data
 #define samplingRateInMillis 10
 
