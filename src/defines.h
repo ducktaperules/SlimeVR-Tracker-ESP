@@ -26,17 +26,21 @@
 // ================================================
 
 // Set parameters of IMU and board used
-#define IMU IMU_BNO085
-#define SECOND_IMU IMU
-#define BOARD BOARD_SLIMEVR
-#define IMU_ROTATION DEG_270
+#define IMU IMU_MPU6050
+#define SECOND_IMU IMU_MPU6050
+#define BOARD BOARD_LOLIN_LITE
+#define IMU_ROTATION DEG_270 // leg
 #define SECOND_IMU_ROTATION DEG_270
+//#define IMU_ROTATION DEG_90 // ankle
+//#define SECOND_IMU_ROTATION DEG_270
+//#define IMU_ROTATION DEG_0 // chest
+//#define SECOND_IMU_ROTATION DEG_0
 
 // Battery monitoring options (comment to disable):
 //   BAT_EXTERNAL for ADC pin, 
 //   BAT_INTERNAL for internal - can detect only low battery, 
 //   BAT_MCP3021 for external ADC connected over I2C
-#define BATTERY_MONITOR BAT_EXTERNAL
+#define BATTERY_MONITOR BAT_INTERNAL
 
 // BAT_EXTERNAL definition
 // D1 Mini boards with ESP8266 have internal resistors. For these boards you only have to adjust BATTERY_SHIELD_RESISTANCE.
@@ -134,4 +138,12 @@
   #define PIN_BATTERY_LEVEL 3
   #define LED_PIN LED_OFF  // RGB LED Protocol would need to be implementetet did not brother for the test, because the board ideal for tracker ifself
 //  #define LED_INVERTED false
+#elif BOARD == BOARD_LOLIN_LITE
+  #define PIN_IMU_SDA 0
+  #define PIN_IMU_SCL 2
+  #define PIN_IMU_INT 23
+  #define PIN_IMU_INT_2 25
+  #define PIN_BATTERY_LEVEL 36
+  #define LED_PIN 22
+  //#define LED_INVERTED true
 #endif
